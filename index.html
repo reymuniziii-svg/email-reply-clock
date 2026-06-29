@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>How Fast I Reply — a clock of 8,341 email replies</title>
+    <link rel="icon" href="data:,">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <main class="stage" aria-label="Reply clock">
+      <canvas
+        id="clock"
+        role="img"
+        aria-label="A radial clock of 8,341 work email replies. Distance from the center encodes time to reply, from instant at the center to a week at the rim. A blazing core shows that most replies land within minutes."
+      ></canvas>
+
+      <header class="hud hud-top">
+        <h1 class="title">How fast I reply</h1>
+        <p class="subtitle">8,341 work email replies over three years. Distance from the center is the time it took me to reply; angle is the hour of day.</p>
+      </header>
+
+      <section class="hud hud-metrics" aria-label="Headline metrics">
+        <div class="metric"><span class="mval" id="mCount">0</span><span class="mlab">replies</span></div>
+        <div class="metric"><span class="mval">61.9%</span><span class="mlab">within the hour</span></div>
+        <div class="metric"><span class="mval">28 min</span><span class="mlab">median reply</span></div>
+      </section>
+
+      <section class="hud hud-legend" aria-hidden="true">
+        <span class="leglab">faster</span>
+        <span class="legbar"></span>
+        <span class="leglab">slower</span>
+      </section>
+
+      <section class="controls" aria-label="Playback controls">
+        <button id="btnPlay" type="button" aria-label="Pause">Pause</button>
+        <button id="btnReplay" type="button">Replay</button>
+        <input id="scrub" type="range" min="0" max="1000" value="0" step="1" aria-label="Scrub the animation">
+        <span class="yr" id="yrLabel">2023</span>
+      </section>
+
+      <noscript><p class="noscript">JavaScript is required to render the reply clock.</p></noscript>
+    </main>
+    <script src="./app.js"></script>
+  </body>
+</html>
