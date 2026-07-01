@@ -51,6 +51,21 @@ relative year boundaries, mean reply hour for the dial rotation).
 No names, email addresses, domains, subjects, recipients, or message content are included or
 derivable, only the timing of the replies.
 
+### Build your own from Thunderbird
+
+`thunderbird_import.py` regenerates `data/reply_clock.json` from a local Thunderbird
+profile. It indexes every message by `Message-ID`, finds the replies you sent (via the
+`In-Reply-To` / `References` headers), and writes only the timing — no addresses or content.
+
+```bash
+python3 thunderbird_import.py                      # auto-detect profile + Sent folders
+python3 thunderbird_import.py --me you@example.com # identify your replies by sender
+python3 thunderbird_import.py --max-days 30        # drop replies to ancient threads
+```
+
+Stdlib only — no dependencies. By default it reads replies from "Sent"-style folders; pass
+`--me` (repeatable) to instead match by your own From address across all folders.
+
 ## License
 
 MIT (see `LICENSE`). Data is the author's own; remix freely.
